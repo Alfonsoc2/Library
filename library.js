@@ -18,8 +18,40 @@ function addBookInput(){
 
     const newBook = new Book(title, author, pages)
     myLibrary.push(newBook);
+    displayLibrary();
     console.log('book added');
     console.log(myLibrary);
     });
 }
+
 addBookInput();
+
+function toggleform() {
+    const form = document.getElementById("Book");
+    const button = document.querySelector("button");
+
+    if (form.style.display === "none") {
+        form.style.display = "block";
+        button.textContent = "Hide Form";
+        } else {
+            form.style.display = "none";
+            button.textContent = "Add Book"
+        }
+
+}
+
+function displayLibrary() {
+    const libraryDiv = document.querySelector(".Library");
+    libraryDiv.innerHTML = "";
+
+    myLibrary.forEach((book) => {
+        const bookDiv = document.createElement("div");
+        bookDiv.classList.add("book");
+
+        bookDiv.textContent = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.pages}`;
+
+        libraryDiv.appendChild(bookDiv);
+
+
+    });
+}
