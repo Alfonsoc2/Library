@@ -1,9 +1,10 @@
 const myLibrary = [];
 
-function Book(title, author, pages){
+function Book(title, author, pages, read = false){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
 
 }
 
@@ -59,6 +60,22 @@ function displayLibrary() {
         });
 
         bookDiv.appendChild(removeButton);
+
+        const toggleRead = document.createElement("input");
+        toggleRead.type = "checkbox";
+        toggleRead.checked = Book.read
+        toggleRead.addEventListener("change", () => {
+            book.read =toggleRead.checked;
+        })  ;
+
+
+
+        const readLabel =document.createElement("label");
+        readLabel.textContent = "Read";
+        
+        bookDiv.appendChild(readLabel);
+        bookDiv.appendChild(toggleRead)
+
 
         libraryDiv.appendChild(bookDiv);
 
