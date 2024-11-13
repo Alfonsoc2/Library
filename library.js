@@ -44,11 +44,21 @@ function displayLibrary() {
     const libraryDiv = document.querySelector(".Library");
     libraryDiv.innerHTML = "";
 
-    myLibrary.forEach((book) => {
+    myLibrary.forEach((book,index) => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
 
         bookDiv.textContent = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.pages}`;
+
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove Book";
+
+        removeButton.addEventListener("click", () =>{
+            myLibrary.splice(index,1);
+            displayLibrary();
+        });
+
+        bookDiv.appendChild(removeButton);
 
         libraryDiv.appendChild(bookDiv);
 
