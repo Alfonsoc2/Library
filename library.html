@@ -8,13 +8,21 @@
     <script src="library.js" defer></script>
 </head>
 <body>
-    <button onclick="toggleform()">Add Book</button>
-    <form id="Book" style="display: none;">
-    <input type="text" name="title" placeholder="Book Title" required>
-    <input type="text" name="author" placeholder="Author" required>
-    <input type="text" name="pages" placeholder="Number of Pages" required>
-    <input type="submit" value="Submit">    
-    </form>
-    <div class="Library"></div>
+    <div class="container">
+        <aside class="sidebar">
+            <button onclick="toggleform()">Add Book</button>
+            <form id="Book" style="display: none;">
+                <input type="text" name="title" placeholder="Book Title" required>
+                <input type="text" name="author" placeholder="Author" required>
+                <input type="text" name="pages" placeholder="Number of Pages" required>
+                <input type="submit" value="Submit">    
+            </form>
+        </aside>
+        
+        <main class="library-content">
+            <h1>Library</h1>
+            <div class="Library"></div>
+        </main>
+    </div>
 </body>
 </html>

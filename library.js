@@ -61,12 +61,14 @@ function displayLibrary() {
 
         bookDiv.appendChild(removeButton);
 
+
         const toggleRead = document.createElement("input");
         toggleRead.type = "checkbox";
         toggleRead.checked = Book.read
         toggleRead.addEventListener("change", () => {
             book.read =toggleRead.checked;
-        })  ;
+        });
+
 
 
 
